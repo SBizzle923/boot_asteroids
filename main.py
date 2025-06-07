@@ -44,11 +44,16 @@ def main():
 
         for thing in drawable:
             thing.draw(screen)
-            
+
         for asteroid in asteroids:
             if player.overlap(asteroid):
                 print("Game over!")
                 sys.exit("")
+            for shot in shots:
+                if asteroid.overlap(shot):
+                    asteroid.kill()
+                    shot.kill()
+                    break
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000.0

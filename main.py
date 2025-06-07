@@ -51,7 +51,7 @@ def main():
                 sys.exit("")
             for shot in shots:
                 if asteroid.overlap(shot):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
                     break
 

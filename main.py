@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 from player import Player
@@ -39,6 +40,10 @@ def main():
             thing.update(dt)
         for thing in drawable:
             thing.draw(screen)
+        for asteroid in asteroids:
+            if player.overlap(asteroid):
+                print("Game over!")
+                sys.exit("")
 
         pygame.display.flip()
         dt = clock.tick(60) / 1000.0
